@@ -1,8 +1,6 @@
-'use client';
-
 import React, { Suspense } from 'react';
 import Loading from '../recipes/loading';
-import RecipesPage from './page'; // Серверний компонент імпортуй просто
+import RecipesPage from './page';
 
 export default function RecipesPageWrapper(props: any) {
   return (
