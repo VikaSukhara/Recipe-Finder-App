@@ -92,6 +92,8 @@ export default async function RecipesPage({ searchParams }: RecipesPageProps) {
                   src={image}
                   alt={title}
                   className="w-full h-48 object-cover"
+                  width={40}
+                  height={50}
                 />
                 <h2 className="p-4 text-lg font-semibold text-blue-800">
                   {title}
