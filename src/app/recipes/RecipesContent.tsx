@@ -28,7 +28,7 @@ export async function getRecipesContent(searchParams: any) {
   if (errorMessage) {
     return (
       <main className="p-6 max-w-5xl mx-auto bg-blue-100">
-        <h1 className="text-2xl font-bold mb-4">Recipes</h1>
+        <h1 className="text-2xl font-bold mb-4 text-blue-900">Recipes</h1>
         <p className="text-red-600">{errorMessage}</p>
       </main>
     );
