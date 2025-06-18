@@ -1,6 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import Image from 'next/image';
 
 interface Recipe {
   id: number;
@@ -26,21 +27,21 @@ async function fetchRecipes({
   maxReadyTime?: string;
 }): Promise<Recipe[]> {
   const apiKey = process.env.SPOONACULAR_API_KEY;
-  if (!apiKey) throw new Error("API key missing");
+  if (!apiKey) throw new Error('API key missing');
 
   const params = new URLSearchParams();
-  if (query) params.append("query", query);
-  if (cuisine) params.append("cuisine", cuisine);
-  if (maxReadyTime) params.append("maxReadyTime", maxReadyTime);
-  params.append("apiKey", apiKey);
+  if (query) params.append('query', query);
+  if (cuisine) params.append('cuisine', cuisine);
+  if (maxReadyTime) params.append('maxReadyTime', maxReadyTime);
+  params.append('apiKey', apiKey);
 
   const res = await fetch(
     `https://api.spoonacular.com/recipes/complexSearch?${params.toString()}`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch recipes");
+    throw new Error('Failed to fetch recipes');
   }
 
   const data = await res.json();
@@ -87,7 +88,7 @@ export default async function RecipesPage({ searchParams }: RecipesPageProps) {
               className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow"
             >
               <Link href={`/recipes/${id}`} className="block">
-                <img
+                <Image
                   src={image}
                   alt={title}
                   className="w-full h-48 object-cover"

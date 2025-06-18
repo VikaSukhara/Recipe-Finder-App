@@ -15,6 +15,7 @@ A sleek recipe search app built with **Next.js 14**, **Tailwind CSS**, and the *
 ---
 
 ## Build and Start (Production)
+
 To build the application for production and start the server, run:
 
 ```bash
@@ -23,18 +24,21 @@ npm run start
 ```
 
 or with yarn:
+
 ```bash
 yarn build
 yarn start
 ```
 
 or pnpm:
+
 ```bash
 pnpm build
 pnpm start
 ```
 
 Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -46,7 +50,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 
 ## Project Structure
 
@@ -62,16 +65,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │             ├── loading.tsx  # Loading fallback for recipe details page
 ├── components/
 │ └── Loading.tsx # Custom loading spinner
-├── public/ 
+├── public/
 ├── .env.local # API key for Spoonacular
-├── tailwind.config.ts 
-├── next.config.js 
-├── tsconfig.json 
-└── README.md 
+├── tailwind.config.ts
+├── next.config.js
+├── tsconfig.json
+└── README.md
 ```
 
+## Tech Stack
 
-##  Tech Stack
 - **Next.js 14 (App Router, SSR)**
 - **React 18+ (Suspense)**
 - **Tailwind CSS**
@@ -79,31 +82,30 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **react-spinners**
 - **Spoonacular API**
 
-
-
 ## Features Error Handling
+
 - **Shows user-friendly messages if the API fails or returns no results.**
 - **Displays loading spinners while fetching data.**
 - **Validates the search form to prevent empty or invalid input.**
 
-
-
 ## Screenshots
 
 ### 1. Search Form Screen
+
 Description:
 The search form includes:
+
 - An input field for users to enter a recipe query.
 - A dropdown with cuisine options.
 - A numeric input for maximum preparation time in minutes.
 - A search button that navigates to the recipes page.
 
-
 ![Search Form](./screenshots/search-form.png)
 
-
 ### 2. Recipes Page Screen
+
 Description:
+
 - This screen shows the server-side rendering (SSR) implementation where the app fetches recipes from the Spoonacular API using the query parameters entered in the search form.
 - The response data is cached for 1 minute to improve performance.
 - The list of recipes returned by the API is displayed on this page, showing the recipe title and image.
@@ -112,25 +114,22 @@ Description:
 - Proper error handling is implemented to manage any data fetching issues gracefully.
 - **Additionally, a back arrow button is implemented, which returns the user to the search form page.**
 
-
-
 ![Recipes Page](./screenshots/recipes-page.png)
 
-
-
 ### 3. Recipe Details Page
+
 Description:
--  This screen shows detailed information about a selected recipe.
+
+- This screen shows detailed information about a selected recipe.
 - It renders the following information:
-   - **Recipe title**
-   - **Preparation time**
-   - **Servings**
-   - **List of ingredients**
-   - **Summary**
+
+  - **Recipe title**
+  - **Preparation time**
+  - **Servings**
+  - **List of ingredients**
+  - **Summary**
 
 - The page provides a clear, user-friendly layout styled with Tailwind CSS to showcase the recipe details.
 - **Additionally, a back arrow button is implemented, which returns the user to the search form page.**
-
-
 
 ![Recipe Details Page](./screenshots/recipe-details-page.png)

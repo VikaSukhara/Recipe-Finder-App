@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import React, { Suspense } from "react";
-import RecipeDetailsPage from "./page";
-import Loading from "../loading";
-
+import React, { Suspense } from 'react';
+import RecipeDetailsPage from './page';
+import Loading from '../loading';
 
 export default function RecipePageWrapper(props: any) {
   return (

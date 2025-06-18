@@ -1,54 +1,55 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
   const router = useRouter();
 
-  const [query, setQuery] = useState("");
-  const [cuisine, setCuisine] = useState("");
-  const [maxTime, setMaxTime] = useState("");
+  const [query, setQuery] = useState('');
+  const [cuisine, setCuisine] = useState('');
+  const [maxTime, setMaxTime] = useState('');
 
   const isButtonEnabled = query || cuisine || maxTime;
 
   const cuisines = [
-    "African",
-    "Asian",
-    "American",
-    "British",
-    "Cajun",
-    "Caribbean",
-    "Chinese",
-    "Eastern European",
-    "European",
-    "French",
-    "German",
-    "Greek",
-    "Indian",
-    "Irish",
-    "Italian",
-    "Japanese",
-    "Jewish",
-    "Korean",
-    "Latin American",
-    "Mediterranean",
-    "Mexican",
-    "Middle Eastern",
-    "Nordic",
-    "Southern",
-    "Spanish",
-    "Thai",
-    "Vietnamese",
+    'African',
+    'Asian',
+    'American',
+    'British',
+    'Cajun',
+    'Caribbean',
+    'Chinese',
+    'Eastern European',
+    'European',
+    'French',
+    'German',
+    'Greek',
+    'Indian',
+    'Irish',
+    'Italian',
+    'Japanese',
+    'Jewish',
+    'Korean',
+    'Latin American',
+    'Mediterranean',
+    'Mexican',
+    'Middle Eastern',
+    'Nordic',
+    'Southern',
+    'Spanish',
+    'Thai',
+    'Vietnamese',
   ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const params = new URLSearchParams();
-    if (query) params.append("query", query);
-    if (cuisine) params.append("cuisine", cuisine);
-    if (maxTime) params.append("maxReadyTime", maxTime);
+    if (query) params.append('query', query);
+    if (cuisine) params.append('cuisine', cuisine);
+    if (maxTime) params.append('maxReadyTime', maxTime);
 
     router.push(`/recipes?${params.toString()}`);
   };
@@ -122,8 +123,8 @@ export default function HomePage() {
           className={`w-full py-3 rounded-md text-white font-semibold transition
             ${
               isButtonEnabled
-                ? "bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
-                : "bg-blue-300 cursor-not-allowed"
+                ? 'bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300'
+                : 'bg-blue-300 cursor-not-allowed'
             }`}
         >
           Next

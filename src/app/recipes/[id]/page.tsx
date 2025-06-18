@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import React from "react";
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import React from 'react';
 
 interface Ingredient {
   id: number;
@@ -18,7 +18,7 @@ interface RecipeDetails {
   extendedIngredients: Ingredient[];
   readyInMinutes: number;
   servings: number;
-  summary: string; 
+  summary: string;
 }
 
 interface RecipeDetailsPageProps {
@@ -28,15 +28,15 @@ interface RecipeDetailsPageProps {
 async function fetchRecipeDetails(id: string): Promise<RecipeDetails | null> {
   const apiKey = process.env.SPOONACULAR_API_KEY;
   const res = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`,
   );
   console.log(res);
   if (res.status === 404) {
-    return null; 
+    return null;
   }
 
   if (!res.ok) {
-    throw new Error("Failed to fetch recipe details");
+    throw new Error('Failed to fetch recipe details');
   }
 
   const data = await res.json();
@@ -45,18 +45,12 @@ async function fetchRecipeDetails(id: string): Promise<RecipeDetails | null> {
 
 export default async function RecipeDetailsPage({
   params,
-  searchParams,
 }: RecipeDetailsPageProps) {
   let recipe: RecipeDetails | null = null;
 
-  const backLink = {
-    pathname: "/recipes",
-    query: searchParams,
-  };
-
   try {
     recipe = await fetchRecipeDetails(params.id);
-    console.log("recipe", recipe);
+    console.log('recipe', recipe);
   } catch (error) {
     return (
       <div className="p-6 min-h-screen bg-blue-50 max-w-3xl mx-auto">
@@ -106,8 +100,8 @@ export default async function RecipeDetailsPage({
         <ul className="list-disc list-inside text-black">
           {recipe.extendedIngredients.map((ing) => (
             <li key={ing.id}>
-              {ing.name} — {ing.amount?.metric?.value ?? "N/A"}{" "}
-              {ing.amount?.metric?.unit ?? ""}
+              {ing.name} — {ing.amount?.metric?.value ?? 'N/A'}{' '}
+              {ing.amount?.metric?.unit ?? ''}
             </li>
           ))}
         </ul>
@@ -120,5 +114,3 @@ export default async function RecipeDetailsPage({
     </div>
   );
 }
-
-
